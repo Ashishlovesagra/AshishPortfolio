@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../components/Navbar";
 import Breadcumb from "../components/Breadcumb";
 import Section404 from "../components/Section404";

@@ -1,4 +1,3 @@
-import React from 'react'
 import Navbar from '../components/Navbar';
 import Breadcumb from '../components/Breadcumb';
 import ProjectDetaSection from '../components/ProjectDetaSection';

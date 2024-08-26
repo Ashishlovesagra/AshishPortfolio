@@ -1,5 +1,4 @@
-import React from 'react';
-import Error404 from '../assets/Error404.png';
+import Error404 from "../assets/Error404.png";
 
 function Section404() {
   return (
@@ -13,9 +12,8 @@ function Section404() {
                   <h2 className="title">Sorry!</h2>
                   <h4 className="sub-title">This Page is Not Found.</h4>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and dard
-                    dummy text ever since the 1500 when an uniknown specimen
-                    book has not only five.
+                    Oops! The page you&#39;re looking for isn&#39;t here. It might have
+                    been moved or deleted. Let&#39;s get you back on track!
                   </p>
                   <a
                     href="index.html"
@@ -27,11 +25,7 @@ function Section404() {
               </div>
               <div className="col-xl-6 offset-xl-1 col-md-6">
                 <div className="image">
-                  <img
-                    className="img-fluid"
-                    src={Error404}
-                    alt="developer"
-                  />
+                  <img className="img-fluid" src={Error404} alt="developer" />
                 </div>
               </div>
             </div>
@@ -39,7 +33,7 @@ function Section404() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Section404
+export default Section404;

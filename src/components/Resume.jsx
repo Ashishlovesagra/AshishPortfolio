@@ -1,202 +1,183 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Resume() {
-  const [showFullContent1, setShowFullContent1] = useState(false);
-  const [showFullContent2, setShowFullContent2] = useState(false);
+  // Consolidated state object
+  const [contentVisibility, setContentVisibility] = useState({
+    showFullContent1: false,
+    showFullContent2: false,
+    showFullContent3: false,
+  });
 
-  // Article 1
-  const content1 = `I immersed myself in mastering MERN (MongoDB, Express.js, React.js, Node.js) stack technologies. This intensive experience not only fortified my technical proficiency but also honed my problem-solving skills and collaborative mindset. From delving into MongoDB's database intricacies to crafting seamless interfaces with React.js, and architecting robust APIs using Node.js and Express.js, the comprehensive curriculum at PrepBytes equipped me with a versatile skill set. This immersive journey not only fueled my passion for web development but also instilled a deep appreciation for cutting-edge solutions, preparing me for dynamic contributions in the ever-evolving tech landscape.`;
-
+  // Content Definitions
+  const content1 = `Gained comprehensive hands-on experience in developing dynamic web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js). Demonstrated proficiency in building scalable APIs, designing efficient database schemas, and implementing responsive user interfaces. Acquired essential skills in both frontend and backend technologies, enabling the creation of robust and scalable applications.`;
   const truncatedContent1 = `${content1.slice(0, 225)}...`;
 
-  const handleReadMore1 = () => {
-    setShowFullContent1(!showFullContent1);
-  };
-
-  // Article 2
-  const content2 = `It is a multi-national software service-based company. I am working here as a JavaScript team member and helping other team members to solve their JavaScript problems. Especially worked here on the front-end, as the React JS, Angular, Electron, and worked on backend technologies as a Node.js developer on some good and large-scale projects with international clients. Interacting with users and performing Unit Testing of applications; identified and resolved the bug in the module and RND, requirement gathering, design low-level design documents and features and data-flow.`;
-
+  const content2 = `As a JavaScript team member at a multinational software service company, I specialized in React.js, Redux, Node.js, and Express, providing support to colleagues on JavaScript-related issues. I maintained large-scale frontends, improved product performance through lazy loading and image optimization, conducted unit testing, identified and resolved bugs, and contributed to R&D, requirement gathering, and the design of low-level design documents, features, and data flow.`;
   const truncatedContent2 = `${content2.slice(0, 225)}...`;
 
-  const handleReadMore2 = () => {
-    setShowFullContent2(!showFullContent2);
+  const content3 = `Developed and maintained dynamic, responsive user interfaces using React.js, collaborating with design teams to implement intuitive UI/UX components. Utilized state management libraries like Redux for efficient application state management and integrated the React.js frontend with Node.js (Express) backend services for seamless functionality. Developed and optimized backend services with Node.js (Express) to ensure robust and scalable server-side logic, and designed and implemented RESTful APIs to facilitate communication between frontend and backend systems.`;
+  const truncatedContent3 = `${content3.slice(0, 225)}...`;
+
+  // Event Handlers
+  const handleReadMore = (key) => {
+    setContentVisibility((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
   };
+
   return (
-    <>
-      <div className="resume-info-display-section  section-gap-tb-165 section-bg">
-        <div className="resume-info-display-box">
-          <div className="container">
+    <div className="resume-info-display-section section-gap-tb-165 section-bg">
+      <div className="resume-info-display-box">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <ul className="resume-tab nav">
+                <li className="nav-item">
+                  <button
+                    className="nav-link active"
+                    data-bs-toggle="tab"
+                    data-bs-target="#education-tab"
+                  >
+                    Education
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="nav-link"
+                    data-bs-toggle="tab"
+                    data-bs-target="#experience-tab"
+                  >
+                    Experience
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="resume-info-display-wrapper">
             <div className="row">
               <div className="col-12">
-                <ul className="resume-tab nav">
-                  <li className="nav-item">
-                    <button
-                      className="nav-link active"
-                      data-bs-toggle="tab"
-                      data-bs-target="#education-tab"
-                    >
-                      Education
-                    </button>
-                  </li>
-                  <li className="nav-item">
-                    <button
-                      className="nav-link"
-                      data-bs-toggle="tab"
-                      data-bs-target="#experience-tab"
-                    >
-                      Experience
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="resume-info-display-wrapper">
-              <div className="row">
-                <div className="col-12">
-                  <div className="tab-content" id="myTabContent">
-                    <div
-                      className="tab-pane fade show active"
-                      id="education-tab"
-                      role="tabpanel"
-                    >
-                      <ul className="resume-list">
-                        {/* Start Resume Tab List Single Item */}
-                        <li className="resume-tab-list-single-item">
-                          <div className="content">
-                            <div className="left">
-                              <span className="year">2018 - 2022</span>
-                            </div>
-                            <div className="right">
-                              <h3 className="title">Bachelor of Technology</h3>
-                              <span className="institute-name">
-                                Feroze Gandhi Institute Of Engineering And
-                                Technology- [FGIET], RaeBareli
-                              </span>
-                              <p>
-                                Electronics and Communication Engineering (ECE)
-                                {/* <br />
-                                7.1 CGPA */}
-                              </p>
-                            </div>
+                <div className="tab-content" id="myTabContent">
+                  {/* Education Tab */}
+                  <div
+                    className="tab-pane fade show active"
+                    id="education-tab"
+                    role="tabpanel"
+                  >
+                    <ul className="resume-list">
+                      <li className="resume-tab-list-single-item">
+                        <div className="content">
+                          <div className="left">
+                            <span className="year">2018 - 2022</span>
                           </div>
-                        </li>
-                        {/* End Resume Tab List Single Item */}
-                        {/* Start Resume Tab List Single Item */}
-                        <li className="resume-tab-list-single-item">
-                          <div className="content">
-                            <div className="left">
-                              <span className="year">2017</span>
-                            </div>
-                            <div className="right">
-                              <h3 className="title">Intermediate</h3>
-                              <span className="institute-name">
-                                S G R I C Kurra Chittarpur, Agra
-                              </span>
-                              <p>
-                                UP Board
-                                 {/* <br /> 70.4 %{" "} */}
-                              </p>
-                            </div>
+                          <div className="right">
+                            <h3 className="title">Bachelor of Technology</h3>
+                            <span className="institute-name">
+                              Feroze Gandhi Institute Of Engineering And Technology- [FGIET], RaeBareli
+                            </span>
+                            <p>Electronics and Communication Engineering (ECE)</p>
                           </div>
-                        </li>
-                        {/* End Resume Tab List Single Item */}
-                        <li className="resume-tab-list-single-item">
-                          <div className="content">
-                            <div className="left">
-                              <span className="year">2015</span>
-                            </div>
-                            <div className="right">
-                              <h3 className="title">High School</h3>
-                              <span className="institute-name">
-                                John Milton Public School Nehru Enclave, Agra
-                              </span>
-                              <p>
-                              CBSE Board
-                                {/*  <br /> 6.8 CGPA */}
-                              </p>
-                            </div>
+                        </div>
+                      </li>
+                      <li className="resume-tab-list-single-item">
+                        <div className="content">
+                          <div className="left">
+                            <span className="year">2017</span>
                           </div>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      className="tab-pane fade"
-                      id="experience-tab"
-                      role="tabpanel"
-                    >
-                      <ul className="resume-list">
-                        {/* Start Resume Tab List Single Item */}
-                        <li className="resume-tab-list-single-item">
-                          <div className="content">
-                            <div className="left">
-                              <span className="year">Feb 2022 - Present</span>
-                            </div>
-                            <div className="right">
-                              <h3 className="title">Software Developer</h3>
-                              <span className="institute-name">
-                                TSS (The Star Solution)
-                              </span>
-                              <p>
-                                {showFullContent2
-                                  ? content2
-                                  : truncatedContent2}
-                              </p>
-                              {!showFullContent2 && (
-                                <button
-                                  className="btn btn-outline-one"
-                                  onClick={handleReadMore2}
-                                >
-                                  Read More
-                                </button>
-                              )}
-                              {showFullContent2 && (
-                                <button
-                                  className="btn btn-outline-one"
-                                  onClick={handleReadMore2}
-                                >
-                                  Hide
-                                </button>
-                              )}
-                            </div>
+                          <div className="right">
+                            <h3 className="title">Intermediate</h3>
+                            <span className="institute-name">
+                              S G R I C Kurra Chittarpur, Agra
+                            </span>
+                            <p>UP Board</p>
                           </div>
-                        </li>
-                        {/* End Resume Tab List Single Item */}
-                        {/* Start Resume Tab List Single Item */}
-                        <li className="resume-tab-list-single-item">
-                          <div className="content">
-                            <div className="left">
-                              <span className="year">Aug 2021 - Jan 2022</span>
-                            </div>
-                            <div className="right">
-                              <h3 className="title">Training</h3>
-                              <span className="institute-name">Prepbytes</span>
-                              <p>
-                                {showFullContent1
-                                  ? content1
-                                  : truncatedContent1}
-                              </p>
-                              {!showFullContent1 && (
-                                <button
-                                  className="btn btn-outline-one"
-                                  onClick={handleReadMore1}
-                                >
-                                  Read More
-                                </button>
-                              )}
-                              {showFullContent1 && (
-                                <button
-                                  className="btn btn-outline-one"
-                                  onClick={handleReadMore1}
-                                >
-                                  Hide
-                                </button>
-                              )}
-                            </div>
+                        </div>
+                      </li>
+                      <li className="resume-tab-list-single-item">
+                        <div className="content">
+                          <div className="left">
+                            <span className="year">2015</span>
                           </div>
-                        </li>
-                        {/* End Resume Tab List Single Item */}
-                      </ul>
-                    </div>
+                          <div className="right">
+                            <h3 className="title">High School</h3>
+                            <span className="institute-name">
+                              John Milton Public School Nehru Enclave, Agra
+                            </span>
+                            <p>CBSE Board</p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Experience Tab */}
+                  <div
+                    className="tab-pane fade"
+                    id="experience-tab"
+                    role="tabpanel"
+                  >
+                    <ul className="resume-list">
+                      <li className="resume-tab-list-single-item">
+                        <div className="content">
+                          <div className="left">
+                            <span className="year">June 2023 - Present</span>
+                          </div>
+                          <div className="right">
+                            <h3 className="title">Full Stack Developer</h3>
+                            <span className="institute-name">Ohara IT Solutions</span>
+                            <p>
+                              {contentVisibility.showFullContent3 ? content3 : truncatedContent3}
+                            </p>
+                            <button
+                              className="btn btn-outline-one"
+                              onClick={() => handleReadMore('showFullContent3')}
+                            >
+                              {contentVisibility.showFullContent3 ? "Hide" : "Read More"}
+                            </button>
+                          </div>
+                        </div>
+                      </li>
+                      <li className="resume-tab-list-single-item">
+                        <div className="content">
+                          <div className="left">
+                            <span className="year">Jan 2022 - May 2023</span>
+                          </div>
+                          <div className="right">
+                            <h3 className="title">Software Developer</h3>
+                            <span className="institute-name">TSS (The Star Solution)</span>
+                            <p>
+                              {contentVisibility.showFullContent2 ? content2 : truncatedContent2}
+                            </p>
+                            <button
+                              className="btn btn-outline-one"
+                              onClick={() => handleReadMore('showFullContent2')}
+                            >
+                              {contentVisibility.showFullContent2 ? "Hide" : "Read More"}
+                            </button>
+                          </div>
+                        </div>
+                      </li>
+                      <li className="resume-tab-list-single-item">
+                        <div className="content">
+                          <div className="left">
+                            <span className="year">Aug 2021 - Jan 2022</span>
+                          </div>
+                          <div className="right">
+                            <h3 className="title">Internship</h3>
+                            <span className="institute-name">Prepbytes</span>
+                            <p>
+                              {contentVisibility.showFullContent1 ? content1 : truncatedContent1}
+                            </p>
+                            <button
+                              className="btn btn-outline-one"
+                              onClick={() => handleReadMore('showFullContent1')}
+                            >
+                              {contentVisibility.showFullContent1 ? "Hide" : "Read More"}
+                            </button>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -204,7 +185,7 @@ function Resume() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

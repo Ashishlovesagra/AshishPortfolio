@@ -1698,14 +1698,14 @@ p:last-child {
 }
 
 .hero-portrait .social-link a:nth-child(1) {
-  left: 175px;
-  top: 50px;
+  left: 194px;
+  top: 32px;
 }
 
 @media (min-width: 576px) {
   .hero-portrait .social-link a:nth-child(1) {
-    left: 315px;
-    top: 110px;
+    left: 371px;
+    top: 94px;
   }
 }
 
@@ -1731,13 +1731,13 @@ p:last-child {
 }
 
 .hero-portrait .social-link a:nth-child(2) {
-  left: 225px;
-  top: 90px;
+  left: 241px;
+  top: 80px;
 }
 
 @media (min-width: 576px) {
   .hero-portrait .social-link a:nth-child(2) {
-    left: 395px;
+    left: 424px;
     top: 170px;
   }
 }
@@ -1797,13 +1797,13 @@ p:last-child {
 }
 
 .hero-portrait .social-link a:nth-child(4) {
-  left: 247px;
+  left: 224px;
   top: 213px;
 }
 
 @media (min-width: 576px) {
   .hero-portrait .social-link a:nth-child(4) {
-    left: 430px;
+    left: 403px;
     top: 348px;
   }
 }
@@ -5169,4 +5169,79 @@ p:last-child {
   background-image: url(../images/icon/top-arrow.svg);
   background-position: center 50%;
   background-repeat: no-repeat;
+}
+
+/* Ensure to add this CSS to your stylesheet */
+.offcanvas {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  background: #252734; 
+  z-index: 9999; 
+}
+
+.offcanvas.open {
+  transform: translateX(0);
+}
+
+.offcanvas-header {
+  padding: 10px;
+}
+
+.offcanvas-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.offcanvas-menu {
+  padding: 20px;
+}
+
+.offcanvas-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.offcanvas-menu ul li {
+  padding: 15px 0;
+}
+
+.offcanvas-menu ul li a {
+  text-decoration: none;
+  color: whitesmoke; /* Adjust text color as needed */
+}
+
+.mobile-contact-info {
+  margin-top: 20px;
+}
+
+.mobile-contact-info .social-link {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.mobile-contact-info .social-link li {
+  list-style: none;
+}
+
+.mobile-contact-info .social-link li a {
+  color: #000; /* Adjust icon color as needed */
+  font-size: 24px;
+}
+
+.mobile-header .mobile-logo img {
+  max-width: 100px; /* Adjust logo size as needed */
+}
+
+.mobile-action-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }

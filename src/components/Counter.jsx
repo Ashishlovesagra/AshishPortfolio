@@ -1,65 +1,70 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import CounterupIcon2 from '../assets/CounterupIcon2.jpg';
 import CounterupIcon3 from '../assets/CounterupIcon3.jpg';
 
-function Counter() {
+const Counter = () => {
+  const [projectCount, setProjectCount] = useState(1);
+  const [experienceCount, setExperienceCount] = useState(1);
+
+  useEffect(() => {
+    const incrementProjectCount = setInterval(() => {
+      setProjectCount(prevCount => {
+        if (prevCount < 15) return prevCount + 1;
+        clearInterval(incrementProjectCount);
+        return prevCount;
+      });
+    }, 300); // Adjust the interval as needed for the animation speed
+
+    const incrementExperienceCount = setInterval(() => {
+      setExperienceCount(prevCount => {
+        if (prevCount < 3) return prevCount + 1;
+        clearInterval(incrementExperienceCount);
+        return prevCount;
+      });
+    }, 200); // Adjust the interval as needed for the animation speed
+
+    return () => {
+      clearInterval(incrementProjectCount);
+      clearInterval(incrementExperienceCount);
+    };
+  }, []);
+
   return (
-    <>
-      <div className="counter-display-section section-gap-tb-165 section-bg-2">
-        <div className="counter-display-wrapper">
-          <div className="container">
-            <div className="row justify-content-center justify-content-sm-start">
-              {/* <div className="d-block d-md-flex justify-content-md-start col-12 col-sm-4 col-md-4">
-                Start Counterup Single Item
-                <div className="counterup-single-item">
-                  <div className="icon">
-                    <img src="assets/images/icon/counterup-icon-1.png" alt="developer" />
-                  </div>
-                  <div className="content">
-                    <h2 className="number">
-                      <span className="counter">2</span>+
-                    </h2>
-                    <span className="text">Happy Clients</span>
-                  </div>
+    <div className="counter-display-section section-gap-tb-165 section-bg-2">
+      <div className="counter-display-wrapper">
+        <div className="container">
+          <div className="row justify-content-center justify-content-sm-start">
+            <div className="col-12 col-sm-4 col-md-6 d-flex justify-content-center">
+              <div className="counterup-single-item">
+                <div className="icon">
+                  <img src={CounterupIcon2} alt="Project Complete" />
                 </div>
-                End Counterup Single Item
-              </div> */}
-              <div className="d-block d-md-flex justify-content-md-center col-12 col-sm-4 col-md-6">
-                {/* Start Counterup Single Item */}
-                <div className="counterup-single-item">
-                  <div className="icon">
-                    <img src={CounterupIcon2} alt="developer" />
-                  </div>
-                  <div className="content">
-                    <h2 className="number">
-                      <span className="counter">25</span>+
-                    </h2>
-                    <span className="text">Project Complete</span>
-                  </div>
+                <div className="content">
+                  <h2 className="number">
+                    <span className="counter">{projectCount}</span>+
+                  </h2>
+                  <span className="text">Projects Complete</span>
                 </div>
-                {/* End Counterup Single Item */}
               </div>
-              <div className="d-block d-md-flex justify-content-md-end col-12 col-sm-4 col-md-4">
-                {/* Start Counterup Single Item */}
-                <div className="counterup-single-item">
-                  <div className="icon">
-                    <img src={CounterupIcon3} alt="developer" />
-                  </div>
-                  <div className="content">
-                    <h2 className="number">
-                      <span className="counter">3</span>+
-                    </h2>
-                    <span className="text">Years of Experience</span>
-                  </div>
+            </div>
+            <div className="col-12 col-sm-4 col-md-4 d-flex justify-content-center">
+              <div className="counterup-single-item">
+                <div className="icon">
+                  <img src={CounterupIcon3} alt="Years of Experience" />
                 </div>
-                {/* End Counterup Single Item */}
+                <div className="content">
+                  <h2 className="number">
+                    <span className="counter">{experienceCount}</span>+
+                  </h2>
+                  <span className="text">Years of Experience</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
-}
+};
 
 export default Counter;
