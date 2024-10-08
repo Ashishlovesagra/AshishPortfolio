@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AboutInfo = () => {
   const handleDownload = () => {
-    const pdfUrl = "https://drive.google.com/file/d/1O0dkSkK2RVlGbxim6e8Fa-lk10CvpYF0/view?usp=sharing";
+    const pdfUrl = "https://drive.google.com/file/d/1fgqPvTX6tAlOwnAp-SdgdpJT97NrF9T_/view?usp=sharing";
     const link = document.createElement('a');
     link.href = pdfUrl;
     link.setAttribute('download', 'resume.pdf');
